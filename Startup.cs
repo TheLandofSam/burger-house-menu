@@ -28,6 +28,7 @@ namespace MenuApi
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddCors();
             services.AddMvc();
         }
 
@@ -39,6 +40,10 @@ namespace MenuApi
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            app.UseCors(builder => {
+                builder.WithOrigins("http://localhost:8080");
+            });
 
             app.UseMvc();
         }

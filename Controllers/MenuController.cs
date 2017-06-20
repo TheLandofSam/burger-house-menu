@@ -22,7 +22,7 @@ namespace MenuApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<MenuItem> Get()
+        public List<MenuItem> Get()
         {
             makeMenu();
             return myMenu;
